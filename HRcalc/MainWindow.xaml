@@ -1,0 +1,111 @@
+﻿<Window x:Class="HRcalc.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HRcalc"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         TextElement.FontWeight="Regular"
+         TextElement.FontSize="13"
+         TextOptions.TextFormattingMode="Ideal"
+         TextOptions.TextRenderingMode="Auto"
+         Background="white"
+         FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="MainWindow" Height="850" Width="1000"
+        HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <ScrollViewer x:Name="mainScrollViewer">
+            <StackPanel Margin="20">
+
+                <DataGrid AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    HeadersVisibility="All"
+                    ItemsSource="{Binding Items1}"
+                    ScrollViewer.CanContentScroll="False"
+                    PreviewMouseWheel="DataGrid_PreviewMouseWheel"
+                          CanUserResizeColumns="False"
+                          BorderBrush="Transparent"
+                          Margin="0"
+                          Padding="0">
+
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="Часто встречающиеся ошибки" Width="400">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Padding="10, 0" Text="{Binding Description}" TextWrapping="Wrap"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Binding="{Binding Points}" Header="Баллы" />
+                        <DataGridTemplateColumn Header="Есть у кандидата?">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox IsChecked="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}"
+                                          VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+
+                </DataGrid>
+                <TextBlock Margin="10,10,10,10" 
+                           Text="{Binding TotalPoints1, StringFormat='Подсчет баллов для внесения в таблицу: {0}'}"
+                           FontWeight="Bold"/>
+
+                <DataGrid AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    HeadersVisibility="All"
+                    ItemsSource="{Binding Items2}"
+                    PreviewMouseWheel="DataGrid_PreviewMouseWheel">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="Часто встречающиеся ошибки" Width="400">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Padding="10, 0" Text="{Binding Description}" TextWrapping="Wrap"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Binding="{Binding Points}" Header="Баллы" />
+                        <DataGridTemplateColumn Header="Есть у кандидата?">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox IsChecked="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}"
+                                              VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <TextBlock FontWeight="Bold" Margin="10,10,10,10" Text="{Binding TotalPoints2, StringFormat='Подсчет баллов для внесения в таблицу: {0}'}"></TextBlock>
+
+                <DataGrid AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    HeadersVisibility="All"
+                    ItemsSource="{Binding Items3}"
+                    PreviewMouseWheel="DataGrid_PreviewMouseWheel">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="Часто встречающиеся ошибки" Width="400">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Padding="10, 0" Text="{Binding Description}" TextWrapping="Wrap"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Binding="{Binding Points}" Header="Баллы" />
+                        <DataGridTemplateColumn Header="Есть у кандидата?">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox IsChecked="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}"
+                                              VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <TextBlock FontWeight="Bold" Margin="10,10,10,10" Text="{Binding TotalPoints3, StringFormat='Подсчет баллов для внесения в таблицу: {0}'}"></TextBlock>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
