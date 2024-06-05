@@ -171,6 +171,39 @@ namespace HRcalc
             }
         }
 
+        private void ClearItems1_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in Items1)
+            {
+                item.IsSelected = false;
+            }
+            TotalPoints1 = DataSource.maxPointsItems1;
+        }
+
+        private void ClearItems2_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in Items2)
+            {
+                item.IsSelected = false;
+            }
+            TotalPoints2 = DataSource.maxPointsItems2;
+        }
+
+        private void ClearItems3_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in Items3)
+            {
+                item.IsSelected = false;
+            }
+            TotalPoints3 = DataSource.maxPointsItems3;
+        }
+
+        private void clearItemsAll_Click(object sender, RoutedEventArgs e)
+        {
+            ClearItems1_Click(sender, e);
+            ClearItems2_Click(sender, e);
+            ClearItems3_Click(sender, e);
+        }
         public ObservableCollection<DataGridViewModel> Items1 { get; }
         public ObservableCollection<DataGridViewModel> Items2 { get; }
         public ObservableCollection<DataGridViewModel> Items3 { get; }
